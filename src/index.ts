@@ -22,4 +22,13 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/api/v1/weather', weatherRouter);
 
-app.listen(PORT, () => console.info(`Server started on port: ${PORT}`));
+app.use('*', (req: Request, res: Response) => {
+	res.status(404).json({
+		success: false,
+		errors: ['Invalid route'],
+	});
+});
+
+const server = app.listen(PORT, () => console.info(`Server started on port: ${PORT}`));
+
+export { app as default, server };

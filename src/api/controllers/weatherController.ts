@@ -21,7 +21,7 @@ const getWeatherForecast = async (req: Request, res: Response, next: NextFunctio
 		console.error(error);
 		res.status(500).json({
 			success: false,
-			error: (error as Error).message || 'Internal Server Error',
+			errors: [(error as Error).message || 'Internal Server Error'],
 		});
 	}
 };
