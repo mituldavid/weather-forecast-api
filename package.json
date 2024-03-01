@@ -1,22 +1,60 @@
 {
-  "name": "weather-forecast-api",
-  "version": "0.1.0",
-  "description": "API to fetch weather forecast by zipcode",
-  "main": "index.js",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mituldavid/weather-forecast-api.git"
-  },
-  "author": "mituldavid",
-  "license": "UNLICENSED",
-  "devDependencies": {
-    "@swc/core": "^1.4.2",
-    "@swc/helpers": "^0.5.6",
-    "@types/node": "^20.11.24",
-    "eslint": "^8.57.0",
-    "jest": "^29.7.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
-  }
+	"name": "weather-forecast-api",
+	"version": "0.1.0",
+	"description": "API to fetch weather forecast by zipcode",
+	"main": "index.js",
+	"scripts": {
+		"prepare": "husky"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mituldavid/weather-forecast-api.git"
+	},
+	"author": "mituldavid",
+	"license": "UNLICENSED",
+	"devDependencies": {
+		"@swc/core": "^1.4.2",
+		"@swc/helpers": "^0.5.6",
+		"@types/node": "^20.11.24",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"husky": "^9.0.11",
+		"jest": "^29.7.0",
+		"lint-staged": "^15.2.2",
+		"prettier": "3.2.5",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3",
+		"typescript-eslint": "^7.1.0"
+	},
+	"eslintConfig": {
+		"root": true,
+		"parser": "@typescript-eslint/parser",
+		"plugins": [
+			"@typescript-eslint"
+		],
+		"extends": [
+			"eslint:recommended",
+			"plugin:@typescript-eslint/recommended",
+			"prettier"
+		]
+	},
+	"eslintIgnore": [
+		"build/*"
+	],
+	"prettier": {
+		"arrowParens": "always",
+		"bracketSpacing": true,
+		"printWidth": 100,
+		"proseWrap": "always",
+		"semi": true,
+		"singleQuote": true,
+		"useTabs": true,
+		"trailingComma": "all"
+	},
+	"lint-staged": {
+		"*.{ts,json}": [
+			"prettier --write",
+			"eslint --cache --fix"
+		]
+	}
 }
