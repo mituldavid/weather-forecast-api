@@ -25,7 +25,7 @@ app.use('/api/v1/weather', weatherRouter);
 app.use('*', (req: Request, res: Response) => {
 	res.status(404).json({
 		success: false,
-		errors: ['Invalid route'],
+		errors: [{ message: 'Invalid route' }],
 	});
 });
 

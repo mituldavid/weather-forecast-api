@@ -6,11 +6,15 @@ import { Request, Response, NextFunction } from 'express';
  * and send them as a response if they exist.
  */
 export const throwValidationErrors = (req: Request, res: Response, next: NextFunction) => {
-	const result = validationResult(req);
+	const result = validationResult(req).formatWith(({ msg, ...rest }) => {
+		return {
+			message: msg,
+			...rest,
+		};
+	});
 	if (result.isEmpty()) {
 		return next();
 	}
-	console.log(result);
 	res.status(400).json({ success: false, errors: result.array() });
 };
 
