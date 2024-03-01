@@ -13,10 +13,22 @@ const global = {
 };
 
 // Development-Specific Configuration
-const development = {};
+const development = {
+	redis: {
+		host: process.env.REDIS_HOST_DEV,
+		port: process.env.REDIS_PORT_DEV,
+		password: process.env.REDIS_PASSWORD_DEV,
+	},
+};
 
 // Production-Specific Configuration
-const production = {};
+const production = {
+	redis: {
+		host: process.env.REDIS_HOST_PROD,
+		port: process.env.REDIS_PORT_PROD,
+		password: process.env.REDIS_PASSWORD_PROD,
+	},
+};
 
 // Load environment dependent configuration
 const config = {
