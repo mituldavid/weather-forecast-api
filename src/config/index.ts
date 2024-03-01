@@ -15,8 +15,10 @@ const global = {
 // Development-Specific Configuration
 const development = {
 	redis: {
-		host: process.env.REDIS_HOST_DEV,
-		port: process.env.REDIS_PORT_DEV,
+		socket: {
+			host: process.env.REDIS_HOST_DEV,
+			port: parseInt(process.env.REDIS_PORT_DEV as string),
+		},
 		password: process.env.REDIS_PASSWORD_DEV,
 	},
 };
@@ -24,8 +26,12 @@ const development = {
 // Production-Specific Configuration
 const production = {
 	redis: {
-		host: process.env.REDIS_HOST_PROD,
-		port: process.env.REDIS_PORT_PROD,
+		socket: {
+			tls: true,
+			host: process.env.REDIS_HOST_PROD,
+			port: parseInt(process.env.REDIS_PORT_PROD as string),
+			rejectUnauthorized: true,
+		},
 		password: process.env.REDIS_PASSWORD_PROD,
 	},
 };

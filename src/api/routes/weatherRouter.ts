@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { query } from 'express-validator';
 import throwValidationErrors from '../middleware/validationMiddleware';
 import * as weatherController from '../controllers/weatherController';
+import { respondFromCache, setCacheAndRespond } from '../middleware/cachingMiddleware';
 
 const weatherRouter = Router();
 
@@ -18,7 +19,9 @@ weatherRouter.get(
 		query('zipcode').notEmpty().bail().trim().isPostalCode('any'),
 	],
 	throwValidationErrors,
+	respondFromCache('weather-forecast'),
 	weatherController.getWeatherForecast,
+	setCacheAndRespond('weather-forecast', 1800), // Cache for 30 minutes (1800 seconds)
 );
 
 export default weatherRouter;
