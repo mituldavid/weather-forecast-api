@@ -1,18 +1,18 @@
 # Weather Forecasting API
 
-# About
+## About
 
 An API that can be used to fetch the current weather forecast for a given ZIP code.
 
-# Getting Started
+## Getting Started
 
-### Install dependencies
+### 1. Install dependencies
 
 ```bash
 npm install
 ```
 
-### Setup API Key
+### 2. Setup API Key
 
 This application uses the
 [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/requests-geocoding)
@@ -20,9 +20,9 @@ to convert ZIP codes into geographical coordinates. For this, you will need to c
 the Google Maps Platform (see
 [here](https://developers.google.com/maps/documentation/geocoding/get-api-key) for more details)
 
-### Configure the application
+### 3. Configure the application
 
-Create a .env file in the root folder with the following:
+Create a `.env` file in the root folder with the following:
 
 ```bash
 GOOGLE_MAPS_API_KEY="<your-google-maps-api-key>"
@@ -36,19 +36,19 @@ REDIS_PORT_PROD="<your-redis-port>"
 REDIS_PASSWORD_PROD="<your-redis-password>"
 ```
 
-### Build the application
+### 4. Build the application
 
 ```bash
 npm run build
 ```
 
-### Run the application
+### 5. Run the application
 
 ```bash
 npm start
 ```
 
-# Features
+## Features
 
 - REST API built using Node.js and Express. Written in TypeScript
 - Responds with the current weather forecast for the given ZIP code and includes several metrics
@@ -56,7 +56,7 @@ npm start
 - Caching using Redis, implemented via custom middleware
 - Tested using Jest
 
-# Sample API Response
+## Sample API Response
 
 API response for the ZIP code `560001`
 
