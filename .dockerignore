@@ -1,0 +1,5 @@
+**/node_modules
+**/.husky/_/**/*
+**/.eslintcache
+**/build
+fly.toml

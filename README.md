@@ -2,7 +2,7 @@
 
 ## About
 
-An API that can be used to fetch the current weather forecast for a given ZIP code.
+An API that provides the current weather forecast for a given ZIP code.
 
 ## Getting Started
 
@@ -16,8 +16,8 @@ npm install
 
 This application uses the
 [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/requests-geocoding)
-to convert ZIP codes into geographical coordinates. For this, you will need to create an API Key on
-the Google Maps Platform (see
+to convert ZIP codes into geographical coordinates. To utilize this, you will need to create an API
+Key on the Google Maps Platform (Follow instructions
 [here](https://developers.google.com/maps/documentation/geocoding/get-api-key) for more details)
 
 ### 3. Configure the application
@@ -50,15 +50,18 @@ npm start
 
 ## Features
 
-- REST API built using Node.js and Express. Written in TypeScript
-- Responds with the current weather forecast for the given ZIP code and includes several metrics
-  like temperature, relative humidity, precipitation, wind, pressure, UV index, etc.
-- Caching using Redis, implemented via custom middleware
-- Tested using Jest
+- Built with Node.js and Express, utilizing TypeScript for type safety
+- Returns comprehensive weather forecasts including temperature, humidity, precipitation, wind,
+  pressure, UV index, and more
+- Caching using Redis, implemented through custom middleware
+- Tested with Jest
 
 ## Sample API Response
 
-API response for the ZIP code `560001`
+Endpoint:
+[localhost:5000/api/v1/weather/forecast?zipcode=560001](http://localhost:5000/api/v1/weather/forecast?zipcode=560001)
+
+Response:
 
 ```json
 {
@@ -102,10 +105,6 @@ API response for the ZIP code `560001`
 			"snowfall": {
 				"value": 0,
 				"unit": "cm"
-			},
-			"weatherCode": {
-				"value": 3,
-				"unit": "wmo code"
 			},
 			"cloudCover": {
 				"value": 100,
